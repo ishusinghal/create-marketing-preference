@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.tg.marketing.createmarketingpreference.constants.UpdatePreferenceEnum;
 import com.tg.marketing.createmarketingpreference.dto.MarketingPreferenceDTO;
-import com.tg.marketing.createmarketingpreference.factory.PreferenceFactory;
 import com.tg.marketing.createmarketingpreference.request.MarketingPreference;
 import com.tg.marketing.createmarketingpreference.service.PreferenceServiceImpl;
 
@@ -27,9 +26,6 @@ public class PreferenceController {
 
 	@Autowired
 	PreferenceServiceImpl preferenceServiceImpl;
-
-	@Autowired
-	PreferenceFactory preferenceFactory;
 
 	@PostMapping()
 	public ResponseEntity<?> postMarketingPreferences(@Validated @RequestBody MarketingPreference marketingPreference,
