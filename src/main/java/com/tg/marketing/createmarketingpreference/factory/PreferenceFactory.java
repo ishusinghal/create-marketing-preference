@@ -1,34 +1,17 @@
 package com.tg.marketing.createmarketingpreference.factory;
 
-//@Configuration
+import java.sql.SQLException;
+
+import org.h2.tools.Server;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
 public class PreferenceFactory {
 
-	/*@Bean
-	public EmailPreferenceServiceImpl getEmailPreferenceServiceImpl() {
-		return new EmailPreferenceServiceImpl();
+	@Bean(initMethod = "start", destroyMethod = "stop")
+	public Server inMemoryH2DatabaseaServer() throws SQLException {
+	    return Server.createTcpServer(
+	      "-tcp", "-tcpAllowOthers", "-tcpPort", "9090");
 	}
-
-	@Bean
-	public PostPreferenceServiceImpl getPostPreferenceServiceImpl() {
-		return new PostPreferenceServiceImpl();
-	}
-
-	@Bean
-	public SmsPreferenceServiceImpl getSmsPreferenceServiceImpl() {
-		return new SmsPreferenceServiceImpl();
-	}
-
-	public Preference createPreferenceByType(String type) {
-		if (type == null || type.isEmpty())
-			return null;
-		if (Constants.SMS.equals(type)) {
-			return getSmsPreferenceServiceImpl();
-		} else if (Constants.EMAIL.equals(type)) {
-			return getEmailPreferenceServiceImpl();
-		} else if (Constants.POST.equals(type)) {
-			return getPostPreferenceServiceImpl();
-		}
-		return null;
-	}
-*/
 }
